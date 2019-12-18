@@ -1,4 +1,4 @@
-package ir.maktab32.java.projects.homework7.chatapp;
+package ir.maktab32.java.projects.homework7.chatapp.client;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -9,34 +9,34 @@ import java.util.Scanner;
 
 public class Client {
     Scanner scanner = new Scanner(System.in);
-    private String serverIp = "localhost";
-    private int port = 8080;
-    private Socket client;
-    private DataInputStream reader;
-    private PrintWriter writer;
+    Socket clientSocket;
+    String serverAddress = "localhost";
+    int serverPort = 8080;
+
+    DataInputStream reader;
+    PrintWriter writer;
 
     public void execute(){
         try {
-            client = new Socket(serverIp, port);
-            System.out.println("\u2705 Client Connected to Server!");
-            System.out.println("\u2705 You Can Start Chatting Now!\t(Type 'exit' to Quit Chat)\n");
+            clientSocket = new Socket(serverAddress, serverPort);
+            System.out.println("\u2705 Client Created And Connected to the Server Successfully!\n");
 
-            reader = new DataInputStream(client.getInputStream());
-            writer = new PrintWriter(client.getOutputStream(), true);
-            
+            reader = new DataInputStream(clientSocket.getInputStream());
+            writer = new PrintWriter(clientSocket.getOutputStream(), true);
+
             String clientMessage;
             String serverMessage;
-            String clientName;
+
             serverMessage = reader.readLine();
             System.out.println("Server: " + serverMessage);
             System.out.print("Client: ");
-            clientName = scanner.nextLine();
+            String clientName = scanner.nextLine();
             writer.println(clientName);
             serverMessage = reader.readLine();
             System.out.println("Server: " + serverMessage);
 
             while (true){
-                System.out.print(clientName + ": ");
+                System.out.print("Client: ");
                 clientMessage = scanner.nextLine();
 
                 writer.println(clientMessage);
@@ -47,15 +47,13 @@ public class Client {
                 serverMessage = reader.readLine();
                 System.out.println("Server: " + serverMessage);
             }
+
+
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Another Client is Chatting to Server!");
         }
-    }
-
-    public static void main(String[] args) {
-        new Client().execute();
     }
 
 }
