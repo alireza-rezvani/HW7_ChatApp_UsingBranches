@@ -15,9 +15,7 @@ public class Server {
         try {
             serverSocket = new ServerSocket(serverPort);
             System.out.println("\u2705 Server Created Successfully!");
-
             System.out.println("\u29bf Server is Waiting for A Client to Connect!");
-
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 clients.add(clientSocket);

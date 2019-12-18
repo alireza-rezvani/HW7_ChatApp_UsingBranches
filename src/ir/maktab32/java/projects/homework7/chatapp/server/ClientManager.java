@@ -44,7 +44,7 @@ public class ClientManager implements Runnable {
                 writer.println(serverMsg);
             }
         } catch (IOException e) {
-            System.out.println("A New Client is Trying to Chat to Server!");
+            System.out.println("\u2705 A New Client is Trying to Chat to Server!\n");
         }
     }
 

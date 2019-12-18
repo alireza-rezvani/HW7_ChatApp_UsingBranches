@@ -26,17 +26,17 @@ public class Client {
 
             String clientMessage;
             String serverMessage;
-
+            String clientName;
             serverMessage = reader.readLine();
             System.out.println("Server: " + serverMessage);
             System.out.print("Client: ");
-            String clientName = scanner.nextLine();
+            clientName = scanner.nextLine();
             writer.println(clientName);
             serverMessage = reader.readLine();
             System.out.println("Server: " + serverMessage);
 
             while (true){
-                System.out.print("Client: ");
+                System.out.print(clientName + ": ");
                 clientMessage = scanner.nextLine();
 
                 writer.println(clientMessage);
@@ -52,7 +52,7 @@ public class Client {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Another Client is Chatting to Server!");
+            System.out.println("\u26a0 Another Client is Chatting to Server!");
         }
     }
 
