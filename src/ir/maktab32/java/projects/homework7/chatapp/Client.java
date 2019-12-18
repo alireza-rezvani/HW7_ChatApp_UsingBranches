@@ -23,8 +23,7 @@ public class Client {
 
             reader = new DataInputStream(client.getInputStream());
             writer = new PrintWriter(client.getOutputStream(), true);
-
-
+            
             String clientMessage;
             String serverMessage;
             String clientName;
