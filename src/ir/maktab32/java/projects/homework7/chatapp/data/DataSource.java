@@ -1,4 +1,4 @@
-package ir.maktab32.java.projects.homework7.chatapp.Data;
+package ir.maktab32.java.projects.homework7.chatapp.data;
 
 import ir.maktab32.java.projects.homework7.chatapp.model.User;
 

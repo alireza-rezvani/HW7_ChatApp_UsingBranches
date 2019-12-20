@@ -1,6 +1,6 @@
 package ir.maktab32.java.projects.homework7.chatapp.client;
 
-import ir.maktab32.java.projects.homework7.chatapp.Data.DataSource;
+import ir.maktab32.java.projects.homework7.chatapp.data.DataSource;
 import ir.maktab32.java.projects.homework7.chatapp.model.User;
 
 import java.util.Scanner;
